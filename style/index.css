@@ -1,0 +1,5 @@
+/* This extension doesn't need any styling of its own -- CodeMirror themes
+   the "comment", "keyword", "string", "number", etc. tags this language
+   emits the same way they already theme every other language. This file
+   only exists because the "style" field in package.json is a convention
+   JupyterLab's extension loader expects to find. */

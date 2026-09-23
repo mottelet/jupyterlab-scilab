@@ -1,0 +1,11 @@
+node_modules/
+.yarn/
+lib/
+jupyterlab_scilab/labextension/
+*.tsbuildinfo
+.ipynb_checkpoints/
+__pycache__/
+*.egg-info/
+build/
+dist/
+.DS_Store

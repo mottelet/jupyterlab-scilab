@@ -1,0 +1,45 @@
+[build-system]
+requires = ["hatchling>=1.5.0", "hatch-jupyter-builder>=0.5"]
+build-backend = "hatchling.build"
+
+[project]
+name = "jupyterlab-scilab"
+description = "Scilab syntax highlighting for the JupyterLab CodeMirror editor"
+license = { file = "LICENSE.txt" }
+dynamic = ["version"]
+requires-python = ">=3.8"
+classifiers = [
+    "Framework :: Jupyter",
+    "Framework :: Jupyter :: JupyterLab",
+    "Framework :: Jupyter :: JupyterLab :: 4",
+    "Framework :: Jupyter :: JupyterLab :: Extensions",
+    "Framework :: Jupyter :: JupyterLab :: Extensions :: Prebuilt",
+]
+dependencies = ["jupyterlab>=4.0.0,<5"]
+
+[project.urls]
+Homepage = "https://github.com/Calysto/scilab_kernel"
+
+[tool.hatch.version]
+path = "jupyterlab_scilab/_version.py"
+
+[tool.hatch.build.targets.wheel.shared-data]
+"jupyterlab_scilab/labextension" = "share/jupyter/labextensions/jupyterlab-scilab"
+"install.json" = "share/jupyter/labextensions/jupyterlab-scilab/install.json"
+
+[tool.hatch.build.targets.sdist]
+artifacts = ["jupyterlab_scilab/labextension"]
+exclude = [".github", "binder"]
+
+[tool.hatch.build.hooks.jupyter-builder]
+dependencies = ["hatch-jupyter-builder>=0.5"]
+build-function = "hatch_jupyter_builder.npm_builder"
+ensured-targets = [
+    "jupyterlab_scilab/labextension/static/style.js",
+    "jupyterlab_scilab/labextension/package.json",
+]
+skip-if-exists = ["jupyterlab_scilab/labextension/static/style.js"]
+
+[tool.hatch.build.hooks.jupyter-builder.build-kwargs]
+npm = ["jlpm"]
+build_cmd = "build:prod"

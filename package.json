@@ -1,0 +1,54 @@
+{
+  "name": "jupyterlab-scilab",
+  "version": "0.1.0",
+  "description": "Scilab syntax highlighting for the JupyterLab CodeMirror editor",
+  "keywords": [
+    "jupyter",
+    "jupyterlab",
+    "jupyterlab-extension",
+    "scilab"
+  ],
+  "homepage": "https://github.com/Calysto/scilab_kernel",
+  "bugs": {
+    "url": "https://github.com/Calysto/scilab_kernel/issues"
+  },
+  "license": "BSD-3-Clause",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "style": "style/index.css",
+  "files": [
+    "lib/**/*.{d.ts,eot,gif,html,jpg,js,js.map,json,png,svg,woff2,ttf}",
+    "style/**/*.{css,js,eot,gif,html,jpg,json,png,svg,woff2,ttf}"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Calysto/scilab_kernel.git"
+  },
+  "scripts": {
+    "build": "jlpm build:lib && jlpm build:labextension:dev",
+    "build:prod": "jlpm build:lib && jlpm build:labextension",
+    "build:lib": "tsc --sourceMap",
+    "build:labextension": "jupyter labextension build .",
+    "build:labextension:dev": "jupyter labextension build --development True .",
+    "clean": "jlpm clean:lib",
+    "clean:lib": "rimraf lib tsconfig.tsbuildinfo",
+    "clean:labextension": "rimraf jupyterlab_scilab/labextension",
+    "clean:all": "jlpm clean:lib && jlpm clean:labextension",
+    "watch": "jlpm watch:lib",
+    "watch:lib": "tsc -w --sourceMap"
+  },
+  "dependencies": {
+    "@codemirror/language": "^6.0.0",
+    "@jupyterlab/application": "^4.0.0",
+    "@jupyterlab/codemirror": "^4.0.0"
+  },
+  "devDependencies": {
+    "@jupyterlab/builder": "^4.0.0",
+    "rimraf": "^5.0.0",
+    "typescript": "~5.9.0"
+  },
+  "jupyterlab": {
+    "extension": true,
+    "outputDir": "jupyterlab_scilab/labextension"
+  }
+}
