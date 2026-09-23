@@ -5,6 +5,10 @@ build-backend = "hatchling.build"
 [project]
 name = "jupyterlab-scilab"
 description = "Scilab syntax highlighting for the JupyterLab CodeMirror editor"
+readme = "README.md"
+authors = [
+    { name = "Stéphane Mottelet", email = "stephane.mottelet@utc.fr" }
+]
 license = { file = "LICENSE.txt" }
 dynamic = ["version"]
 requires-python = ">=3.8"
