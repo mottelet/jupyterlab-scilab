@@ -1,6 +1,6 @@
 {
   "name": "jupyterlab-scilab",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Scilab syntax highlighting for the JupyterLab CodeMirror editor",
   "keywords": [
     "jupyter",
